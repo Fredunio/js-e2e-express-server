@@ -19,9 +19,18 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
 - script: |
     npm test
   displayName: 'npm test'
+
+- task: ArchiveFiles@2
+  displayName: "archive"
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: zip
+    
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
