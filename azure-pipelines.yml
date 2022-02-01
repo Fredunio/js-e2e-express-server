@@ -1,5 +1,4 @@
 trigger:
-
 - main
 
 pool:
@@ -23,8 +22,8 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/test-*.xml'
-    testRunTitle: 'Publish tests'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Publish test results'
 
 - task: ArchiveFiles@2
   displayName: "archive"
