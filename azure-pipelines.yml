@@ -19,6 +19,9 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+- script: |
+    npm test
+  displayName: 'npm test'
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
