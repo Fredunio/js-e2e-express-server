@@ -1,4 +1,5 @@
 trigger:
+
 - main
 
 pool:
@@ -20,10 +21,10 @@ steps:
   displayName: 'npm test'
 
 - task: PublishTestResults@2
-  displayName: 'Publish test results'
   inputs:
-    testRunner: 'JUnit'
-    testResultsFiles: 'junit.xml'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Publish tests'
 
 - task: ArchiveFiles@2
   displayName: "archive"
